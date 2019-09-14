@@ -1,5 +1,5 @@
 <?php
-function random($ulang){
+function random(){
     $karakter ='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
     $string = ''; 
 
@@ -12,7 +12,7 @@ function random($ulang){
 
 function ulang($jumlah){
     for ($i=0;$i<$jumlah;$i++){
-            echo random(3)."<br>";
+            echo random()."<br>";
         }
 }
 echo ulang(4);
