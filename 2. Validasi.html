@@ -1,0 +1,31 @@
+<script>
+    // membuat fungsi kombinasi dari huruf kecil, huruf besar dan angka dengan panjang 5-9 karakter
+function username(v){
+    re = /(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{5,9}/;
+    return re.test(v);
+}
+
+    //kombinasi dari huruf kecil, huruf besar minimal satu karakter, angka minimal satu karakter, dan karakter spesial minimal satu karakter dan harus memiliki karakter simbol ‘@’ dan panjang minimal 8 karakter
+function password(v){
+    re = /(?=.*d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%^&*()])(?=[#]).{8,}/;
+    return re.test(v);
+}
+function checkForm(f) {
+    if (!username(f.username.value)) {
+        alert("Username tidak boleh terdapat huruf besar, angka atau karakter special");
+        f.username.focus();
+        return false;
+    }
+    if (!password(f.password.value)) {
+        alert("Password ada yang kurang");
+        f.pin.focus();
+        return false;
+    }
+    return true;
+}
+</script>
+<form method=GET onSubmit="return checkForm(this)">
+   Masukkan username: <input name=username><br><br>
+   Masukkan password: <input type=password name=password><br>
+  <input type=submit value=Login>
+</form>
